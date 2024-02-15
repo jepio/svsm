@@ -28,6 +28,12 @@ jobs:
             override: true
             components: rustfmt, rust-src, clippy
 
+      - name: Install prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make gcc g++
+          uname -a
+
       # ubuntu-latest does not have binutils 2.39, which we need for
       # ld to work, so build all the objects without performing the
       # final linking step.
